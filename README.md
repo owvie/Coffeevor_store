@@ -1,4 +1,265 @@
-<!DOCTYPE html>
+DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffevor | Premium Artisan Roastery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+        .hero-gradient { background: radial-gradient(circle at top right, #fffbeb, transparent); }
+        .cart-sidebar { transition: transform 0.3s ease-in-out; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        input, textarea, select { transition: all 0.2s ease; }
+        
+        .coffee-card { transition: all 0.3s ease; }
+        .coffee-card:hover { transform: translateY(-5px); border-color: #78350f20; }
+    </style>
+</head>
+<body class="bg-[#FDFCFB] text-stone-900 selection:bg-amber-200">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 border-b border-stone-100 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-900 p-2 rounded-xl shadow-lg">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path></svg>
+                </div>
+                <span class="font-black text-2xl tracking-tighter text-amber-900 uppercase">Coffevor</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-extrabold text-[10px] uppercase tracking-widest text-stone-500">
+                <a href="#about" class="hover:text-amber-900 transition">Tentang Kami</a>
+                <a href="#catalog" class="hover:text-amber-900 transition">Katalog</a>
+                <a href="#order-form" class="hover:text-amber-900 transition">Pesan</a>
+                <button onclick="toggleCart()" class="relative flex items-center gap-2 bg-amber-900 text-white px-5 py-3 rounded-full shadow-xl hover:scale-105 transition active:scale-95">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-44 pb-20 px-6 hero-gradient">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-6 uppercase">Freshly <span class="text-amber-900">Roasted</span></h1>
+            <p class="text-stone-500 text-lg mb-10 font-medium tracking-tight">Kopi artisan kualitas ekspor, dikirim langsung ke rumah Anda.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#catalog" class="bg-amber-900 text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl">Belanja Sekarang</a>
+                <a href="#about" class="bg-white border border-stone-200 text-stone-900 px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest">Kisah Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-stone-50">
+        <div class="max-w-4xl mx-auto text-center space-y-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 font-black uppercase text-[10px] tracking-widest mb-4">
+                Sejak 2020
+            </div>
+            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight">
+                Membawa Semangat <br><span class="text-amber-900">Petani Lokal</span> ke Cangkir Anda
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 text-left pt-10">
+                <p class="text-stone-500 leading-relaxed text-lg italic border-l-4 border-amber-900/20 pl-6">
+                    Coffevor berawal dari kecintaan kami terhadap kekayaan kopi Nusantara. Kami bekerja sama secara langsung dengan petani lokal untuk memastikan setiap biji kopi dipanen pada kematangan sempurna dan diproses dengan standar tertinggi.
+                </p>
+                <div class="space-y-6">
+                    <p class="text-stone-500 leading-relaxed">
+                        Setiap batch disangrai dengan presisi oleh <span class="text-amber-900 font-bold">Master Roaster</span> kami untuk memunculkan profil rasa yang unik dan otentik dari setiap daerah asal.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 pt-4">
+                        <div>
+                            <div class="text-3xl font-black text-amber-900 mb-1">100%</div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-stone-400">Biji Kopi Pilihan</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-amber-900 mb-1">24h</div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-stone-400">Freshly Roasted</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog (Tanpa Gambar & Ikon) -->
+    <section id="catalog" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black uppercase tracking-tighter">Koleksi <span class="text-amber-900">Eksklusif</span></h2>
+                    <div id="price-badge" class="inline-block mt-4 px-4 py-1 rounded-full bg-stone-100 text-[10px] font-black uppercase tracking-widest text-stone-500">Mode: Harga Customer</div>
+                </div>
+                <div class="bg-amber-50 border border-amber-100 p-4 rounded-2xl max-w-xs">
+                    <p class="text-amber-900 text-[10px] font-black uppercase tracking-widest mb-1">Promo Khusus</p>
+                    <p class="text-stone-600 text-[11px] leading-tight font-medium">Gratis Ongkir otomatis untuk total pesanan kelipatan <span class="font-bold">1 Kg</span> (1kg, 2kg, dst).</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Arabika -->
+                <div class="coffee-card bg-stone-50 p-10 rounded-[3.5rem] border border-stone-100 flex flex-col justify-between group transition-all duration-500">
+                    <div>
+                        <div class="mb-6">
+                            <span class="bg-amber-900 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full">Arabica Beans</span>
+                        </div>
+                        <h3 class="text-3xl font-black uppercase mb-1">Arabika</h3>
+                        <p class="text-stone-400 text-[10px] mb-8 font-bold uppercase tracking-[0.2em]">Specialty Grade</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">Pilih Ukuran</label>
+                            <select id="size-arabika" class="w-full p-5 rounded-2xl bg-white font-bold outline-none text-sm border border-transparent focus:border-amber-900/10 shadow-sm" onchange="updateDisplayPrices()">
+                                <option value="0.1" data-price="20000" data-agent="15000">100 Gram</option>
+                                <option value="0.25" data-price="50000" data-agent="40000">250 Gram</option>
+                                <option value="1" data-price="175000" data-agent="150000">1 KG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span id="price-arabika" class="text-3xl font-black text-amber-900 tracking-tighter">Rp 20.000</span>
+                        </div>
+                        <button onclick="addToCart('Arabika', 'size-arabika')" class="w-full bg-stone-900 text-white p-6 rounded-2xl font-black uppercase text-[10px] tracking-widest group-hover:bg-amber-900 transition-colors shadow-lg">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- Robusta -->
+                <div class="coffee-card bg-stone-50 p-10 rounded-[3.5rem] border border-stone-100 flex flex-col justify-between group transition-all duration-500">
+                    <div>
+                        <div class="mb-6">
+                            <span class="bg-amber-950 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full">Robusta Beans</span>
+                        </div>
+                        <h3 class="text-3xl font-black uppercase mb-1">Robusta</h3>
+                        <p class="text-stone-400 text-[10px] mb-8 font-bold uppercase tracking-[0.2em]">Premium Pick</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">Pilih Ukuran</label>
+                            <select id="size-robusta" class="w-full p-5 rounded-2xl bg-white font-bold outline-none text-sm border border-transparent focus:border-amber-900/10 shadow-sm" onchange="updateDisplayPrices()">
+                                <option value="0.1" data-price="17000" data-agent="12000">100 Gram</option>
+                                <option value="0.25" data-price="34000" data-agent="28000">250 Gram</option>
+                                <option value="1" data-price="140000" data-agent="115000">1 KG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span id="price-robusta" class="text-3xl font-black text-amber-900 tracking-tighter">Rp 17.000</span>
+                        </div>
+                        <button onclick="addToCart('Robusta', 'size-robusta')" class="w-full bg-stone-900 text-white p-6 rounded-2xl font-black uppercase text-[10px] tracking-widest group-hover:bg-amber-900 transition-colors shadow-lg">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- Blend -->
+                <div class="coffee-card bg-stone-50 p-10 rounded-[3.5rem] border border-stone-100 flex flex-col justify-between group transition-all duration-500">
+                    <div>
+                        <div class="mb-6">
+                            <span class="bg-amber-700 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full">House Blend</span>
+                        </div>
+                        <h3 class="text-3xl font-black uppercase mb-1">House Blend</h3>
+                        <p class="text-stone-400 text-[10px] mb-8 font-bold uppercase tracking-[0.2em]">Classic Mix</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">Pilih Ukuran</label>
+                            <select id="size-blend" class="w-full p-5 rounded-2xl bg-white font-bold outline-none text-sm border border-transparent focus:border-amber-900/10 shadow-sm" onchange="updateDisplayPrices()">
+                                <option value="0.1" data-price="22000" data-agent="18000">100 Gram</option>
+                                <option value="0.25" data-price="50000" data-agent="42000">250 Gram</option>
+                                <option value="1" data-price="180000" data-agent="155000">1 KG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span id="price-blend" class="text-3xl font-black text-amber-900 tracking-tighter">Rp 22.000</span>
+                        </div>
+                        <button onclick="addToCart('House Blend', 'size-blend')" class="w-full bg-stone-900 text-white p-6 rounded-2xl font-black uppercase text-[10px] tracking-widest group-hover:bg-amber-900 transition-colors shadow-lg">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Order Form -->
+    <section id="order-form" class="py-24 px-6 bg-stone-50">
+        <div class="max-w-4xl mx-auto bg-white rounded-[4rem] shadow-2xl p-8 md:p-16 border border-stone-100">
+            <h2 class="text-3xl font-black uppercase tracking-tighter text-center mb-4">Informasi Pengiriman</h2>
+            <p class="text-center text-stone-400 text-sm mb-12 font-medium tracking-tight">Mohon lengkapi data di bawah untuk proses pengiriman cepat.</p>
+            
+            <form id="shipping-form" onsubmit="handleOrder(event)" class="space-y-8">
+                <!-- Group Identity -->
+                <div class="p-8 bg-amber-50 rounded-[2.5rem] border border-amber-100">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-amber-900 block mb-3">Punya Kode Voucher?</label>
+                    <div class="flex gap-3">
+                        <input type="text" id="voucher-input" placeholder="Ketik Kode" class="flex-1 p-5 rounded-2xl border-none outline-none font-bold uppercase shadow-inner text-sm">
+                        <button type="button" onclick="applyVoucher()" class="bg-amber-900 text-white px-8 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:brightness-110 active:scale-95 transition">Verifikasi</button>
+                    </div>
+                    <p id="voucher-info" class="text-[9px] font-bold uppercase mt-3 text-amber-900/40 tracking-widest">Masukkan kode khusus agen/dropshipper.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-4">Nama Penerima</label>
+                        <input type="text" name="name" required placeholder="Nama Lengkap" class="w-full p-5 rounded-2xl bg-stone-50 outline-none focus:ring-2 ring-amber-900/10 font-bold text-sm">
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-4">WhatsApp Penerima</label>
+                        <input type="tel" name="phone" required placeholder="08xxxx" class="w-full p-5 rounded-2xl bg-stone-50 outline-none focus:ring-2 ring-amber-900/10 font-bold text-sm">
+                    </div>
+                </div>
+
+                <!-- Agent Name (Only if Agent Mode) -->
+                <div id="agent-input-container" class="hidden space-y-3 animate-pulse">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-green-600 ml-4 italic">Nama Pengirim (Identitas Dropship)</label>
+                    <input type="text" name="agent_name" placeholder="Nama Toko/Pribadi Anda" class="w-full p-5 rounded-2xl bg-green-50 outline-none border border-green-200 font-bold text-sm text-green-900">
+                </div>
+
+                <div class="border-t border-stone-100 pt-10">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-stone-400 block mb-8 text-center underline decoration-amber-900/20 underline-offset-8">Detail Lokasi Pengiriman</span>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <input type="text" name="provinsi" placeholder="Provinsi" required class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="kabupaten" placeholder="Kab/Kota" required class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="kecamatan" placeholder="Kecamatan" required class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="desa" placeholder="Desa/Kel" required class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="dusun" placeholder="Dusun" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="jalan" placeholder="Jalan" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="blok" placeholder="Blok" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="no_rumah" placeholder="No. Rumah" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="rt" placeholder="RT" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                        <input type="text" name="rw" placeholder="RW" class="p-4 rounded-xl bg-stone-50 text-sm font-bold placeholder:text-stone-300">
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-4">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-4">Permintaan Khusus (Opsional)</label>
+                    <textarea name="notes" rows="3" placeholder="Contoh: Giling halus untuk espresso, giling kasar untuk V60, dll." class="w-full p-5 rounded-2xl bg-stone-50 outline-none resize-none font-medium text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-amber-900 text-white p-6 rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-2xl hover:scale-[1.01] transition-all active:scale-95 mt-4">
+                    Konfirmasi via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="flex items-center gap-3 mb-6 justify-center md:justify-start">
+                    <div class="bg-amber-900 p-2 rounded-xl">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path></svg>
+                    </div>
+                    <span class="font-black text-2xl tracking-tighter uppercase">Coffevor</span>
+                </div>
+                <p class="text-stone-500 text-sm max-w-sm mb-8 leading-relaxed">Nikmati kemewahan kopi artisan pilihan dari tanah Nusantara. Terkurasi, Terpanggang Sempurna.</p>
+                <div class="flex gap-6 justify-center md:justify-start">
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@c<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
